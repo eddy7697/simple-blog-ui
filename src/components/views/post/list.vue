@@ -1,19 +1,19 @@
 <template>
   <el-container>
     <el-header>
-      <PageHeader msg="HelloWorld" />
+      <PageHeader msg="文章列表" />
     </el-header>
     <el-main>    
-      <h1>test</h1>               
+      <h1>文章列表</h1>               
     </el-main>
   </el-container>
 </template>
 
 <script>
-import PageHeader from '../common/PageHeader'
+import PageHeader from '../../common/PageHeader'
 
 export default {
-  name: 'HelloWorld',
+  name: 'PostList',
   components: {
     PageHeader
   },

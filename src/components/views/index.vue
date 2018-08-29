@@ -1,10 +1,10 @@
 <template>
   <el-container>
     <el-header>
-      <PageHeader msg="HelloWorld" />
+      <PageHeader msg="首頁" />
     </el-header>
     <el-main>    
-      <h1>test</h1>               
+      <h1>首頁</h1>               
     </el-main>
   </el-container>
 </template>
@@ -13,14 +13,9 @@
 import PageHeader from '../common/PageHeader'
 
 export default {
-  name: 'HelloWorld',
+  name: 'index',
   components: {
     PageHeader
-  },
-  props: {
-    msg: String
-  },
-  methods: {
   }
 }
 </script>

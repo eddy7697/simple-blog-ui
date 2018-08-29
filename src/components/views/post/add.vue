@@ -1,14 +1,26 @@
 <template>
-  <div class="hello">
-    <h1>test</h1>
-  </div>
+  <el-container>
+    <el-header>
+      <PageHeader msg="新增文章" />
+    </el-header>
+    <el-main>    
+      <h1>新增文章</h1>               
+    </el-main>
+  </el-container>
 </template>
 
 <script>
+import PageHeader from '../../common/PageHeader'
+
 export default {
-  name: 'test',
+  name: 'PostCreate',
+  components: {
+    PageHeader
+  },
   props: {
     msg: String
+  },
+  methods: {
   }
 }
 </script>
