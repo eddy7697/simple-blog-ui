@@ -1,17 +1,52 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-container>      
+      <el-container :style="computedStyle">
+        <el-aside width="200px">
+          <PageAside />
+        </el-aside>
+        <el-container>
+          <el-header>
+            <PageHeader />
+          </el-header>
+          <el-main>
+            <transition name="slide-fade" mode="out-in">
+              <router-view></router-view>
+            </transition>            
+          </el-main>
+          <el-footer>
+            <PageFooter />
+          </el-footer>
+        </el-container>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PageAside from './components/common/PageAside'
+import PageHeader from './components/common/PageHeader'
+import PageFooter from './components/common/PageFooter'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    PageAside, 
+    PageHeader, 
+    PageFooter
+  },
+  created() {
+    window.addEventListener('resize', this.computeStyle);
+  },
+  data() {
+    return {
+      computedStyle: `height: ${window.innerHeight - 16}px; border: 1px solid #eee`
+    }
+  },
+  methods: {
+    computeStyle() {
+      this.computedStyle = `height: ${window.innerHeight - 16}px; border: 1px solid #eee`
+    }
   }
 }
 </script>
@@ -23,6 +58,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  overflow: hidden;
+}
+.slide-fade-enter-active {
+  transition: all .15s ease;
+}
+.slide-fade-leave-active {
+  transition: all .15s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>
